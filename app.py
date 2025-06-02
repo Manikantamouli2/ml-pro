@@ -50,3 +50,9 @@ if st.button("Predict"):
     car_price = model.predict(input_data_model)
 
     st.markdown('Car Price is going to be '+ str(car_price[0]))
+import os
+port = os.environ.get("PORT", 8501)
+import streamlit as st
+st.set_page_config(page_title="My App")
+# Run with specific port
+st.run_on_save = True
