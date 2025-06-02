@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np 
 import pickle as pk 
 import streamlit as st 
-
+import os
+port = int(os.environ.get("PORT", 8501))
 model = pk.load(open('model.pkl','rb'))
 print(model)
 st.header('Car Price Prediction ML Model')
@@ -50,9 +51,4 @@ if st.button("Predict"):
     car_price = model.predict(input_data_model)
 
     st.markdown('Car Price is going to be '+ str(car_price[0]))
-import os
-port = os.environ.get("PORT", 8501)
-import streamlit as st
-st.set_page_config(page_title="My App")
-# Run with specific port
-st.run_on_save = True
+
